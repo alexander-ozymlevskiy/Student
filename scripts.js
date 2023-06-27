@@ -53,13 +53,11 @@ class Student {
       this.attendance.filter((value) => value === true).length /
       this.attendance.length;
 
-    if (averageGPA >= 90 || averageAttendance >= 0.9) {
-      return "Молодець";
-    } else if (averageGPA >= 60 || averageAttendance > 0.7) {
-      return "Добре, але можна краще";
-    } else {
-      return "Редиска!";
-    }
+    return averageGPA >= 90 || averageAttendance >= 0.9
+      ? "Молодець"
+      : averageGPA >= 60 || averageAttendance > 0.7
+      ? "Добре, але можна краще"
+      : "Редиска!";
   }
 }
 
@@ -97,4 +95,4 @@ console.log(
 console.log(`Рік народження: ${studentOleg.yearOfBirth}`);
 console.log(`Середній бал: ${studentOleg.getGPA()}`);
 console.log(`Вік: ${studentOleg.getAge()}`);
-console.log(`Висновок: ${studentOleg.summary()}`);
+console.log(`Результат: ${studentOleg.summary()}`);
