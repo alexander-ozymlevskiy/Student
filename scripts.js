@@ -18,7 +18,7 @@ class Student {
   }
 
   // Метод щоб отримати середній бал студента
-  getGPA() {
+  getAverageGrade() {
     const sum = this.rating.reduce((result, grade) => result + grade, 0);
     return sum / this.rating.length;
   }
@@ -48,14 +48,14 @@ class Student {
   // і якщо середня оцінка більше 90, а середнє відвідування більше 0.9, то метод summary повертає рядок "Молодець!",
   // якщо одне з цих значень менше , то - "Добре, але можна краще ", якщо обидва нижче - "Редиска!".
   summary() {
-    const averageGPA = this.getGPA();
+    const averageGrade = this.getAverageGrade();
     const averageAttendance =
       this.attendance.filter((value) => value === true).length /
       this.attendance.length;
 
-    return averageGPA >= 90 || averageAttendance >= 0.9
+    return averageGrade >= 90 || averageAttendance >= 0.9
       ? "Молодець"
-      : averageGPA >= 60 || averageAttendance > 0.7
+      : averageGrade >= 60 || averageAttendance > 0.7
       ? "Добре, але можна краще"
       : "Редиска!";
   }
@@ -85,7 +85,7 @@ console.log(
   `Прізвище та ім'я студента: ${studentMaks.name} ${studentMaks.surname}`
 );
 console.log(`Рік народження: ${studentMaks.yearOfBirth}`);
-console.log(`Середній бал: ${studentMaks.getGPA()}`);
+console.log(`Середній бал: ${studentMaks.getAverageGrade()}`);
 console.log(`Вік: ${studentMaks.getAge()}`);
 console.log(`Результат: ${studentMaks.summary()}`);
 console.log("-----------------------------");
@@ -93,6 +93,6 @@ console.log(
   `Прізвище та ім'я студента: ${studentOleg.name} ${studentOleg.surname}`
 );
 console.log(`Рік народження: ${studentOleg.yearOfBirth}`);
-console.log(`Середній бал: ${studentOleg.getGPA()}`);
+console.log(`Середній бал: ${studentOleg.getAverageGrade()}`);
 console.log(`Вік: ${studentOleg.getAge()}`);
 console.log(`Результат: ${studentOleg.summary()}`);
